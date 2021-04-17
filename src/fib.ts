@@ -10,3 +10,7 @@ export const fib = (num: number) => {
   }
   return fibOf;
 };
+
+export function fibWithCallback(num: number, callbackFromJesus: (result: number) => void){
+  callbackFromJesus(fib(num));
+}
