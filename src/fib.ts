@@ -1,9 +1,9 @@
-export const fib = (num: number) => {
-  if (num == 0) return 0;
+export const fib = (x: number): number => {
+  if (x == 0) return 0;
   let prevFib = 1;
   let prevPrevFib = 0;
   let fibOf = 1;
-  for (let i = 0; i <= num - 2; i++) {
+  for (let i = 0; i <= x - 2; i++) {
     fibOf = prevFib + prevPrevFib;
     prevPrevFib = prevFib;
     prevFib = fibOf;
@@ -11,6 +11,12 @@ export const fib = (num: number) => {
   return fibOf;
 };
 
-export function fibWithCallback(num: number, callbackFromJesus: (result: number) => void){
-  callbackFromJesus(fib(num));
-}
+export const fibWithCallback = (x: number, callbackFromJesus: (result: number) => void) => {
+  callbackFromJesus(fib(x));
+};
+
+export const fibRecursive = (n: number): number => {
+  if (n <= 0) return 0;
+  if (n === 1) return 1;
+  return fibRecursive(n - 1) + fibRecursive(n - 2);
+};
