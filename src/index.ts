@@ -1,3 +1,2 @@
-import { func1 } from './func1';
+import { fib } from './fib';
 
-func1();
