@@ -11,4 +11,8 @@ describe(`stringCalculator`, () => {
     });
   }
 
+  test("textual string should return NaN", () => {
+    expect(calculateString("hello world")).toBe(NaN);
+  });
+
 });
