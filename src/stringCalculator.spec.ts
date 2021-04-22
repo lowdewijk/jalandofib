@@ -5,7 +5,10 @@ describe(`stringCalculator`, () => {
     expect(calculateString("")).toBe(NaN);
   });
 
-  test("literal number should return same number", () => {
-    expect(calculateString("0")).toBe(0);
-  });
+  for (let i = 0; i < 99; i++)   {
+    test(`literal number ${i} should return same number`, () => {
+      expect(calculateString(i + "")).toBe(i);
+    });
+  }
+
 });
