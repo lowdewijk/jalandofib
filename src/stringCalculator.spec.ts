@@ -1,22 +1,22 @@
-import { calculateString, exactParseInt } from './calculator';
+import { calculateString, exactParseFloat } from './calculator';
 
-describe(`exactParseInt`, () => {
+describe(`exactParseFloat`, () => {
   test("empty string should return NaN", () => {
-    expect(exactParseInt("")).toBe(NaN);
+    expect(exactParseFloat("")).toBe(NaN);
   });
 
   for (let i = 0; i < 99; i++)   {
     test(`literal number ${i} should return same number`, () => {
-      expect(exactParseInt(i + "")).toBe(i);
+      expect(exactParseFloat(i + "")).toBe(i);
     });
   }
 
   test("textual string should return NaN", () => {
-    expect(exactParseInt("hello world")).toBe(NaN);
+    expect(exactParseFloat("hello world")).toBe(NaN);
   });
 
   test("textual string with numbers should still be NaN", () => {
-    expect(exactParseInt("1+Bla")).toBe(NaN);
+    expect(exactParseFloat("1+Bla")).toBe(NaN);
   });
 });
 
@@ -40,12 +40,16 @@ describe(`stringCalculator`, () => {
     expect(calculateString("1+Bla")).toBe(NaN);
   });
 
-  test("that 1+1=2", () => {
-    expect(calculateString("1+1")).toBe(2);
-  });
+  const testCalulcation = [
+    { calc: "1+1", result: 2 },
+    { calc: "1+1+1", result: 3 },
+    { calc: "0.1+0.1", result: 0.2 },
+  ];
 
-  test("that 1+1+1=3", () => {
-    expect(calculateString("1+1+1")).toBe(3);
+  testCalulcation.forEach(({ calc, result}) => {
+    test(`that ${calc}`, () => {
+      expect(calculateString(calc)).toBe(result);
+    });
   });
 
 });
