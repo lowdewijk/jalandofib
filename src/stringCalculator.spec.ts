@@ -40,4 +40,8 @@ describe(`stringCalculator`, () => {
     expect(calculateString("1+Bla")).toBe(NaN);
   });
 
+  test("that 1+1=2", () => {
+    expect(calculateString("1+1")).toBe(2);
+  });
+
 });
