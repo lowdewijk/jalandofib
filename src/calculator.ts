@@ -6,9 +6,9 @@ export function exactParseInt(str: string): number {
 
 export function calculateString(calculation: string): number {
   const elements = calculation.split("+");
-  if (elements.length === 2) {
-    return exactParseInt(elements[0]) + exactParseInt(elements[1]);
-  } else {
-    return exactParseInt(calculation);
+  let result = 0;
+  for(let i = 0; i < elements.length; i++) {
+    result += exactParseInt(elements[i]);
   }
+  return result;
 }

@@ -44,4 +44,8 @@ describe(`stringCalculator`, () => {
     expect(calculateString("1+1")).toBe(2);
   });
 
+  test("that 1+1+1=3", () => {
+    expect(calculateString("1+1+1")).toBe(3);
+  });
+
 });
