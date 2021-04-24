@@ -1,4 +1,3 @@
-
 export function exactParseFloat(str: string): number {
   const n = parseFloat(str);  
   return (n + "") === str ? n : NaN;

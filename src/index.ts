@@ -1,3 +1,3 @@
-import { fib, factorial } from './fib';
+import { fib } from './fib';
 import { calculateString } from './calculator';
 
