@@ -1,4 +1,7 @@
-import { fib, fibRecursive, fibWithCallback } from './fib';
+import { fib, fibRecursive, fibWithCallback, factorial, facWithCallback } from './fib';
+
+
+// Fibonacci:
 
 describe(`fibonacci`, () => {
   const fibTestNums = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34];
@@ -27,5 +30,25 @@ describe(`fibonacci`, () => {
     for (let i = 0; i < 10; i++) {
       expect(fib(i)).toBe(fibRecursive(i));
     }
+  });
+});
+
+// Factorial:
+
+describe(`factorial`, () => {
+  const facTestNums = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800];
+
+  facTestNums.forEach((facTestNum, i) => {
+    test(`factorial ${i} should be ${facTestNum}`, () => {
+      expect(factorial(i)).toBe(facTestNum);
+    });
+  });
+
+  facTestNums.forEach((facTestNum, i) => {
+    test(`facWithCallback ${i} should be ${facTestNum}`, () => {
+      facWithCallback(i, (result) => {
+        expect(result).toBe(facTestNum);
+      });
+    });
   });
 });
